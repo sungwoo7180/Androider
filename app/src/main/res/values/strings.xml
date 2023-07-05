@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BottomNavi</string>
+
+    <string name="home">홈</string>
+    <string name="hospital">병원</string>
+    <string name="phone">폰</string>
+    <string name="menu">메뉴</string>
+</resources>

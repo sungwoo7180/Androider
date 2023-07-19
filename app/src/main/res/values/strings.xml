@@ -1,8 +1,28 @@
 <resources>
-    <string name="app_name">BottomNavi</string>
+    <string name="app_name">GoldenTime</string>
 
     <string name="home">홈</string>
     <string name="hospital">병원</string>
     <string name="phone">폰</string>
     <string name="menu">메뉴</string>
+    
+    <string-array name="wound">
+        <item>상처 응급 처치</item>
+        <item>타박상(멍)</item>
+        <item>찰과상</item>
+        <item>관통상</item>
+    </string-array>
+
+    <string-array name="heart">
+        <item>AED 사용법</item>
+        <item>심폐 소생술(CPR)</item>
+    </string-array>
+
+    <string-array name="BasicFirstAid">
+        <item>AED 사용법</item>
+        <item>심폐 소생술(CPR)</item>
+        <item>심장 질환 정보</item>
+    </string-array>
+
+
 </resources>

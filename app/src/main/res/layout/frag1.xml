@@ -1,54 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <!--android:background="@drawable/chr">-->
+    android:layout_height="match_parent">
 
+    <!-- Scroll 내부에 ConstraintLayout -->
 
-    <!-- 심장 -->
-
-    <ImageView
-        android:id="@+id/my_image_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/chr4"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.0">
 
-    <Button
-        android:id="@+id/my_button3"
-        android:layout_width="73dp"
-        android:layout_height="70dp"
-        android:elevation="10dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintBottom_toBottomOf="@+id/my_image_view"
-        app:layout_constraintEnd_toEndOf="@+id/my_image_view"
-        app:layout_constraintHorizontal_bias="0.582"
-        app:layout_constraintStart_toStartOf="@+id/my_image_view"
-        app:layout_constraintTop_toTopOf="@+id/my_image_view"
-        app:layout_constraintVertical_bias="0.242" />
-    <!-- 복통 -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- 배경 이미지 -->
+            <ImageView
+                android:id="@+id/background_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:layout_marginTop="30dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/chr5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-    <Button
-        android:id="@+id/my_button4"
-        android:layout_width="77dp"
-        android:layout_height="94dp"
-        android:background="@android:color/transparent"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="@+id/my_image_view"
-        app:layout_constraintEnd_toEndOf="@+id/my_image_view"
-        app:layout_constraintStart_toStartOf="@+id/my_image_view"
-        app:layout_constraintTop_toTopOf="@+id/my_image_view"
-        app:layout_constraintVertical_bias="0.416" />
+            <!-- 두통 버튼 -->
+            <Button
+                android:id="@+id/my_button1"
+                android:layout_width="155dp"
+                android:layout_height="85dp"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/background_image_view"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.601"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view"
+                app:layout_constraintVertical_bias="0.0" />
+            <!-- 심장 버튼 -->
+            <Button
+                android:id="@+id/my_button2"
+                android:layout_width="110dp"
+                android:layout_height="115dp"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/background_image_view"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.681"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view"
+                app:layout_constraintVertical_bias="0.233" />
+            <!-- 상처 버튼 -->
+            <Button
+                android:id="@+id/my_button3"
+                android:layout_width="89dp"
+                android:layout_height="113dp"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/background_image_view"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.95"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view"
+                app:layout_constraintVertical_bias="0.432" />
+            <!-- 탈수 버튼 -->
+            <Button
+                android:id="@+id/my_button4"
+                android:layout_width="95dp"
+                android:layout_height="111dp"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/background_image_view"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.933"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view"
+                app:layout_constraintVertical_bias="0.106" />
+            <!-- 복통 버튼 -->
+            <Button
+                android:id="@+id/my_button5"
+                android:layout_width="103dp"
+                android:layout_height="136dp"
+                android:layout_marginTop="348dp"
+                android:background="@android:color/transparent"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view" />
+            <!-- 열사병 버튼 -->
+            <Button
+                android:id="@+id/my_button6"
+                android:layout_width="106dp"
+                android:layout_height="153dp"
+                android:layout_marginTop="544dp"
+                android:background="@android:color/transparent"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.101"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view" />
+            <!-- 저체온증 버튼 -->
+            <Button
+                android:id="@+id/my_button7"
+                android:layout_width="145dp"
+                android:layout_height="119dp"
+                android:background="@android:color/transparent"
+                android:elevation="10dp"
+                app:layout_constraintBottom_toBottomOf="@id/background_image_view"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view"
+                app:layout_constraintVertical_bias="0.835" />
+            <!-- 기타 버튼 -->
+            <Button
+                android:id="@+id/my_button"
+                android:layout_width="100dp"
+                android:layout_height="144dp"
+                android:layout_marginTop="576dp"
+                android:background="@android:color/transparent"
+                android:textColor="#000000"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.948"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view" />
+            <FrameLayout
+                android:id="@+id/heart_frame"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
 
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

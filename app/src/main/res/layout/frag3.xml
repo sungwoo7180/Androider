@@ -1,14 +1,329 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#00ff00">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="3번화면 입니다."
-        android:textSize="40sp"/>
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <EditText
+                android:id="@+id/textView32"
+                android:layout_width="258dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="152dp"
+                android:hint="@string/edit"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView33"
+                app:layout_constraintStart_toStartOf="parent"
+                android:background="@null"/>        <!-- 지우면 밑줄 생김 -->
+
+            <EditText
+                android:id="@+id/textView33"
+                android:layout_width="258dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="152dp"
+                android:hint="@string/edit"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="477dp"
+                android:background="@null"/>
+
+            <EditText
+                android:id="@+id/textView37"
+                android:layout_width="258dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="152dp"
+                android:hint="@string/edit"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="610dp"
+                android:background="@null"/>
+
+            <EditText
+                android:id="@+id/textView38"
+                android:layout_width="258dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="152dp"
+                android:hint="@string/edit"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="644dp"
+                android:background="@null"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/textView39"
+                android:layout_width="258dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="152dp"
+                android:hint="@string/edit"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:layout_editor_absoluteY="676dp"
+                android:background="@null"
+                tools:ignore="MissingConstraints" />
+
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="148dp"
+                android:layout_height="160dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.015"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/medicine"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="214dp" />
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textView1"
+                app:srcCompat="@drawable/med" />
+
+            <TextView
+
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000000"
+                android:text="개인 의료정보 입력"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                tools:ignore="MissingConstraints" /> <!-- 가운데 정렬 -->
+
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/chart"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="55dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="232dp"
+                android:text="가지고 있는 병력"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="43dp" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="212dp"
+                android:text="장기간 복용 중인 약"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="214dp" />
+
+            <TextView
+                android:id="@+id/textView30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="212dp"
+                android:text="단기간 복용 중인 약"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="387dp" />
+
+            <TextView
+                android:id="@+id/textView35"
+                android:layout_width="57dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="252dp"
+                android:text="알레르기"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="565dp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="65dp" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="258dp" />
+
+            <EditText
+                android:id="@+id/textView31"
+                android:layout_width="258dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="152dp"
+                android:hint="@string/edit"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toTopOf="@+id/textView32"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                android:background="@null"/>
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="88dp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="111dp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="134dp" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="160dp"
+                android:text="(대략적인 복용 기간을 함께 기재해주세요.)"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="235dp" />
+
+            <TextView
+                android:id="@+id/textView36"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="(약물 알레르기가 있다면 꼭 기재해주세요.)"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="587dp" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="281dp" />
+
+
+            <TextView
+                android:id="@+id/textView40"
+                android:layout_width="258dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="152dp"
+                android:text="여기에 입력하세요"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="304dp" />
+
+            <ImageView
+                android:id="@+id/imageView89"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/med"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="395dp" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/peanut"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="565dp" />
+
+
+            <android.widget.Button
+                android:id="@+id/button1"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="취소"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteX="212dp"
+                tools:layout_editor_absoluteY="736dp" />
+
+            <android.widget.Button
+                android:id="@+id/button2"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:text="저장"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="736dp"
+                tools:ignore="MissingConstraints" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

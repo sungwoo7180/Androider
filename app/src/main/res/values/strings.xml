@@ -5,7 +5,9 @@
     <string name="hospital">병원</string>
     <string name="phone">폰</string>
     <string name="menu">메뉴</string>
-    
+    <string name="edit">여기에 입력하세요.</string>
+    <string name="lung_image_description">천식발작</string>
+
     <string-array name="wound">
         <item>상처 응급 처치</item>
         <item>타박상(멍)</item>

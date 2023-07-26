@@ -13,11 +13,11 @@
     <item
         android:id="@+id/action_phone"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_local_phone_24"
-        android:title="폰"/>
+        android:icon="@drawable/ic_baseline_menu_24"
+        android:title="메뉴"/>
     <item
         android:id="@+id/action_menu"
         android:enabled="true"
-        android:icon="@drawable/ic_baseline_menu_24"
-        android:title="메뉴"/>
+        android:icon="@drawable/ic_baseline_local_phone_24"
+        android:title="폰"/>
 </menu>

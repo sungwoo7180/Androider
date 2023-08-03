@@ -66,8 +66,8 @@
 
             <ImageView
                 android:id="@+id/imageView555"
-                android:layout_width="276dp"
-                android:layout_height="194dp"
+                android:layout_width="368dp"
+                android:layout_height="272dp"
                 android:layout_gravity="center"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
@@ -84,7 +84,7 @@
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="5dp"
                 android:text="복용(입을 통해서)"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"
@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="1. 독극물 정보 수집"
-                android:textSize="13dp"
+                android:textSize="16dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:ignore="MissingConstraints"

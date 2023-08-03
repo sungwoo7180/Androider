@@ -134,16 +134,17 @@
                 app:layout_constraintTop_toTopOf="@id/background_image_view"
                 app:layout_constraintVertical_bias="0.835" />
             <!-- 기타 버튼 -->
+
             <Button
                 android:id="@+id/my_button"
                 android:layout_width="100dp"
                 android:layout_height="144dp"
-                android:layout_marginTop="696dp"
+                android:layout_marginTop="528dp"
                 android:background="@android:color/transparent"
                 android:textColor="#000000"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="@id/background_image_view"
-                app:layout_constraintHorizontal_bias="0.983"
+                app:layout_constraintHorizontal_bias="0.932"
                 app:layout_constraintStart_toStartOf="@id/background_image_view"
                 app:layout_constraintTop_toTopOf="@id/background_image_view" />
 

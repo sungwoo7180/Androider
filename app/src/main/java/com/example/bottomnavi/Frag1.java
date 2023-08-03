@@ -62,6 +62,7 @@ public class Frag1 extends Fragment {
         });
 
         return view;
+
     }
     //심장 버튼 대화상자
     private void showHeartDialog() {

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="64dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:background="#000000">
+
+                <Button
+                    android:id="@+id/BackButton"
+                    android:layout_width="60dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="start"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintStart_toStartOf="@+id/toolbar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </androidx.appcompat.widget.Toolbar>
+            </RelativeLayout>
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#555555"
+                android:text="응급처치 비디오 재생하기"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:id="@+id/imageView55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/el"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView58"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="전기화상 응급처치"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="707dp" />
+
+            <ImageView
+                android:id="@+id/imageView56"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/elect"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="건조한 막대로 환자 몸에 부착되어 있는 전선을 제거하거나, 고무장갑을 끼든가 골판지 위에 올라가 뗴어낸다."
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+            <ImageView
+                android:id="@+id/imageView57"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/elect1"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView60"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="감전 후 적어도 수 시간은 안정을 유지하는 것이 필요하다. 호흡이 정지된 경우는 인공호흡을 심장 정지가 있는 경우 심폐소생술을 실시한다."
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+            <ImageView
+                android:id="@+id/imageView58"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/elect2"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="호흡과 심장의 회복 후에 화상에 대한 처치를 한다. 화상을 입은 부위(전류의 입구와 출구 부위)는 몸의 심부까지 충분히 차게 해 주고 병원으로 이송한다."
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+
+            <ImageView
+                android:id="@+id/imageView59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/el"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

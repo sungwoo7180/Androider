@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="64dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:background="#000000">
+
+                <Button
+                    android:id="@+id/BackButton"
+                    android:layout_width="60dp"
+                    android:layout_height="53dp"
+                    android:layout_gravity="start"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintStart_toStartOf="@+id/toolbar"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:background="#000000"
+                    android:minHeight="?attr/actionBarSize"
+                    android:theme="?attr/actionBarTheme"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+                </androidx.appcompat.widget.Toolbar>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="#555555"
+                android:text="응급처치 비디오 재생하기"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <ImageView
+                android:id="@+id/imageView55"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/el"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView62"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="절단환자 응급처치"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="707dp" />
+            <TextView
+                android:id="@+id/textView63"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="상처는 그 손상기전과 모양에 따라 다음과 같이 분류된다."
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+            <ImageView
+                android:id="@+id/imageView60"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/cut1"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView64"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="즉시 119에 신고하고, 상처를 직접 압박하거나 높이 들어 올려서 지혈시킨다.
+(구조요청시 반드시 절단 환자임을 밝힌다.)
+깨끗하고 단단한 거즈와 붕대로 절단부위를 감싸주면서 환자의 쇼크를 방지해 준다."
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+            <ImageView
+                android:id="@+id/imageView61"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/cut2"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView65"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="절단부위를 생리식염수로 씻어 깨끗한 거즈로 감싼다."
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+            <ImageView
+                android:id="@+id/imageView62"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/cut3"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+            <TextView
+                android:id="@+id/textView66"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="거즈로 감싼 후 다시 큰 타월로 싼 후 밀봉하여 얼음과 물 1:1의 비율로 섞은 용기에 봉지를 담아 냉장 상태를 유지한다.
+"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="666dp" />
+            <ImageView
+                android:id="@+id/imageView64"
+                android:layout_width="275dp"
+                android:layout_height="197dp"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/cut4"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+            <ImageView
+                android:id="@+id/imageView63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/el"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="509dp" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

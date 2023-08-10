@@ -90,7 +90,7 @@ public class Frag4 extends Fragment  {
                     }
                     // TextView 에 경도, 위도, 그리고 주소 정보 표시
                     locationTextView.setText("위도: " + formattedLatitude + "\n경도: " + formattedLongitude);
-
+                    locationTextView.setText("위도: " + latitude + "\n경도: " + longitude);
                     // Geocoder 를 사용하여 주소 정보 가져오기
                     Geocoder geocoder = new Geocoder(requireContext(), Locale.getDefault());
                     try {

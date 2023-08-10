@@ -13,9 +13,8 @@
         app:itemIconTint="#FF0000"
         app:itemTextColor="#FFFF00"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/bottom_menu"
-        tools:layout_editor_absoluteX="0dp" />
-
+        app:menu="@menu/bottom_menu" />
+    <!--tools:layout_editor_absoluteX="0dp"-->
     <FrameLayout
         android:id="@+id/main_frame"
         android:layout_width="match_parent"

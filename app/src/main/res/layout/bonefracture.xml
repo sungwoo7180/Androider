@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="409dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:background="#000000"
+                android:minHeight="?attr/actionBarSize"
+                android:theme="?attr/actionBarTheme"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/heartBackButton"
+                android:layout_width="63dp"
+                android:layout_height="53dp"
+                android:layout_marginTop="28dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/phone"
+                app:layout_constraintStart_toStartOf="@+id/toolbar"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:text="골절"
+                android:textColor="#FF0000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/toolbar"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="뼈나 골단판 또는 관절면의 연속성이 완전 혹은 불완전하게 소실된 상태를 말하며, 대개의 경우 외부의 힘에 의하여 발생한다. ."
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="395dp"
+                android:layout_height="191dp"
+                android:layout_marginTop="40dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.241"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar"
+                app:srcCompat="@drawable/bone" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="골절의 응급처치"
+                android:textColor="#FF0000"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text=""
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="398dp"
+                android:layout_height="269dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.515"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:srcCompat="@drawable/bonefracture" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="골절 사고가 발생하였을 때 간혹 골절 부위를 원래대로 되돌려 놓으려고 무리한 시도를 하는 경우가 있다. 이러한 행동은 골절이 일어난 주변부의 근육이나 혈관, 신경 등을 더 손상시킬 수 있어 삼가 해야 한다.."
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView3"
+                app:layout_constraintVertical_bias="0.1" />
+
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="413dp"
+                android:layout_height="280dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:srcCompat="@drawable/bonefracture2" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="골절사고가 발생했을 때 가장 먼저 해야 할 일은 손상 부위를 가능한 움직이지 않도록 하는 것이다. 다친 부위를 심장보다 높게 올린 상태에서 나무판자, 여러겹 접은 신문지, 종이 상자 등의 부목을 이용하여 골절부위가 움직이지 못하도록 고정해야 한다. \n부목은 골절된 부위의 위 ·아래  관절까지 포함시킬 수 있는 긴 것이어야 하고 폭은 골절된 부위보다 넓은 것이 좋다. 예를 들어 아래 팔에 골절이 생겼다면 손목과 팔꿈치 관절을 포함할 수 있는 길이의 부목이어야 하고 손가락에 골절이 발생했다면 바로 옆에 있는 손가락까지 함께 부목으로 고정해야 한다."
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="396dp"
+                android:layout_height="271dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.285"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView7"
+                app:srcCompat="@drawable/heat_iced_damage_5_3" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="골절 부위는 대부분 부어 오르고 열이 나는데 이 때에는 냉찜질이 도움이 된다. 냉찜질은 혈관을 수축시켜 부러진 뼈 주변에서 발생할 수 있는 출혈을 감소시켜주고 차가운 느낌이 골절 부위의 통증을 덜 느끼게 하는 진통 효과를 가지고 있다."
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="396dp"
+                android:layout_height="271dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.285"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView8"
+                app:srcCompat="@drawable/bonefracture3" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="골절 부위의 피부가 찢어져 피가 나는 경우는 개방성 골절 상황으로 외부의 감염성 물질이 뼈에감염을 일으킬 수 있는 응급 상황이다. 이 때, 하얀 소독솜을 사용해 지혈을 시도하는 경우가 있는데 이는 잘못된 응급처치법이다. 거즈가 아닌 소독솜을 사용하면 솜의 가느다란 털이 상처 부위의 분비물과 엉겨 붙어 추후 병원에서 시행되는 후속 처치를 어렵게 할 수 있다. \n따라서 상처 부위에서 피가 나면 깨끗한 거즈나 천을 이용하여 지혈하는 것이 좋다. 상처부위의 출혈을 멎게 하기 위해 흔히 가루 형태의 지혈제를 사용하는 경우가 있는데, 가루가 상처 부위의 염증을 악화시킬 수 있어 주의해야 한다.."
+                android:textColor="#000"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

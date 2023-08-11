@@ -4,6 +4,7 @@ import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
@@ -104,4 +105,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
     }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Frag3에 해당하는 Fragment 일 때 데이터 불러오기
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.main_frame);
+        if (fragment instanceof Frag3) {
+            ((Frag3) fragment).loadDataFromFile();
+            ((Frag3) fragment).updateTextViews();
+        }
+    }
+
 }

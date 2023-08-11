@@ -39,7 +39,10 @@ import net.daum.mf.map.api.MapPolyline;
 import net.daum.mf.map.api.MapView;
 import androidx.appcompat.app.AlertDialog;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.List;
@@ -103,6 +106,7 @@ public class Frag4 extends Fragment  {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+
                 }
 
                 @Override
@@ -199,6 +203,10 @@ public class Frag4 extends Fragment  {
                     String locationText = locationTextView.getText().toString();
                     locationText = locationText + "\n[위치 전송 앱 사용]";
 
+                    String additionalData = loadDataFromFile();
+                    if (additionalData != null) {
+                        locationText = locationText + "\n" + additionalData;
+                    }
                     // 문자 메시지를 보내기 위한 암시적 인텐트 생성
                     Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
                     sendIntent.setData(Uri.parse("smsto:" + Uri.encode("119")));
@@ -257,7 +265,28 @@ public class Frag4 extends Fragment  {
             }
         }
     }
+    // 데이터를 파일로부터 읽어오는 함수
+    private String loadDataFromFile() {
+        StringBuilder stringBuilder = new StringBuilder();
+        try {
+            FileInputStream fileInputStream = requireContext().openFileInput("data.txt");
+            InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line).append("\n");
+            }
+            bufferedReader.close();
 
+            // 파일 내용을 로그로 출력
+            Log.d("FileContents", stringBuilder.toString());
+
+            return stringBuilder.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
     // 내 위치를 지도 위에 표시하는 메서드
     private void showMyLocation(double latitude, double longitude) {
         if (mapView != null) {

@@ -37,91 +37,41 @@
             android:orientation="vertical">
 
             <!-- EditText 뷰들 -->
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.026"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                app:srcCompat="@drawable/chart" />
+                app:srcCompat="@drawable/chart"
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="49dp" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="200dp"
-                android:text="가지고 있는 병력"
+                android:layout_marginStart="4dp"
+                android:text="가지고 있는 병력 or 수술내역"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/textView12"
-                app:layout_constraintStart_toStartOf="parent" />
-
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="240dp"
-                android:layout_marginBottom="52dp"
-                android:text="가지고 있는 병력"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/imageView"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView12"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="52dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView14"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="100dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:layout_editor_absoluteY="49dp" />
 
             <EditText
                 android:id="@+id/textView15"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="124dp"
+                android:layout_width="251dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="8dp"
                 android:background="@null"
                 android:hint="@string/edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.448"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView13"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="76dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView11"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
@@ -138,60 +88,25 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="190dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="4dp"
                 android:text="장기간 복용 중인 약"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
                 app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
-            <EditText
-                android:id="@+id/textView16"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView3"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView17"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView16"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView18"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView17"
-                tools:ignore="MissingConstraints" />
 
             <EditText
                 android:id="@+id/textView19"
                 android:layout_width="254dp"
-                android:layout_height="25dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="12dp"
                 android:background="@null"
                 android:hint="@string/edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView18"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine3"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
@@ -208,60 +123,25 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="190dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="12dp"
                 android:text="단기간 복용 중인 약"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
                 app:layout_constraintTop_toBottomOf="@+id/imageView1" />
 
             <EditText
-                android:id="@+id/textView20"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView4"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView21"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView20"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView22"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView21"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
                 android:id="@+id/textView23"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
+                android:layout_width="251dp"
+                android:layout_height="31dp"
+                android:layout_marginTop="8dp"
                 android:background="@null"
                 android:hint="@string/edit"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView22"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine4"
                 tools:ignore="MissingConstraints" />
 
             <ImageView
@@ -278,59 +158,66 @@
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="230dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="8dp"
                 android:text="알르레기"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-            <EditText
-                android:id="@+id/textView24"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView5"/>
-
-            <EditText
-                android:id="@+id/textView25"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView24"
-                tools:ignore="MissingConstraints" />
-
-            <EditText
-                android:id="@+id/textView26"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
-                android:background="@null"
-                android:hint="@string/edit"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView25"
-                tools:ignore="MissingConstraints" />
 
             <EditText
                 android:id="@+id/textView27"
-                android:layout_width="254dp"
-                android:layout_height="25dp"
+                android:layout_width="251dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="4dp"
                 android:background="@null"
                 android:hint="@string/edit"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/imageView"
-                app:layout_constraintTop_toBottomOf="@+id/textView26"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView24"
                 tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/editTextTextMultiLine2"
+                android:layout_width="251dp"
+                android:layout_height="72dp"
+                android:layout_marginTop="4dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            <TextView
+                android:id="@+id/editTextTextMultiLine3"
+                android:layout_width="254dp"
+                android:layout_height="76dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toEndOf="@+id/imageView1"
+                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            <TextView
+                android:id="@+id/editTextTextMultiLine4"
+                android:layout_width="254dp"
+                android:layout_height="69dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="250dp"
+                android:layout_height="74dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/textView27"
+                app:layout_constraintStart_toEndOf="@+id/imageView3"
+                app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
 
             <!-- 기타 TextView, EditText, ImageView 뷰들 -->
@@ -382,8 +269,8 @@
         android:id="@+id/button2"
         android:layout_width="180dp"
         android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:text="삭제"
+        android:layout_marginTop="16dp"
+        android:text="불러오기"
         android:textColor="@color/black"
         android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -24,21 +24,20 @@
             android:layout_height="wrap_content">
             <!-- 배경 이미지 -->
 
+            <!-- 두통 버튼 -->
             <ImageView
                 android:id="@+id/background_image_view"
                 android:layout_width="match_parent"
                 android:layout_height="1000dp"
-                android:layout_marginTop="30dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/chr5"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/heart_frame"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <!-- 두통 버튼 -->
             <Button
                 android:id="@+id/my_button1"
                 android:layout_width="155dp"
@@ -66,6 +65,22 @@
                 app:layout_constraintStart_toStartOf="@id/background_image_view"
                 app:layout_constraintTop_toTopOf="@id/background_image_view"
                 app:layout_constraintVertical_bias="0.233" />
+
+            <!-- 인터넷 -->
+            <Button
+                android:id="@+id/my_button0"
+                android:layout_width="103dp"
+                android:layout_height="101dp"
+                android:background="@drawable/internet"
+                android:elevation="10dp"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="@id/background_image_view"
+                app:layout_constraintEnd_toEndOf="@id/background_image_view"
+                app:layout_constraintHorizontal_bias="0.1"
+                app:layout_constraintStart_toStartOf="@id/background_image_view"
+                app:layout_constraintTop_toTopOf="@id/background_image_view"
+                app:layout_constraintVertical_bias="0.081" />
+
             <!-- 상처 버튼 -->
             <Button
                 android:id="@+id/my_button3"

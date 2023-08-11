@@ -17,6 +17,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.bottomnavi.R;
 import com.example.bottomnavi.etc.BoneFracture;
+import com.example.bottomnavi.etc.Bug;
 import com.example.bottomnavi.etc.Dia;
 import com.example.bottomnavi.etc.Exacer;
 import com.example.bottomnavi.etc.EyeAttack;
@@ -114,6 +115,17 @@ public class ETC extends Fragment {
             }
         });
         */
+        view.findViewById(R.id.bugButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment bug = new Bug();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, bug);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
         //6. 심장 발작 myocardial
         view.findViewById(R.id.myocardialButton).setOnClickListener(new View.OnClickListener() {
             @Override

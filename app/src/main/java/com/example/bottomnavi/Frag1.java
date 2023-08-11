@@ -2,16 +2,26 @@ package com.example.bottomnavi;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.bottomnavi.etc.HeatStroke;
+import com.example.bottomnavi.etc.Hypo;
+
+import java.util.List;
 
 public class Frag1 extends Fragment {
     private View view;
@@ -46,6 +56,12 @@ public class Frag1 extends Fragment {
             @Override
             public void onClick(View v) {
                showWoundDialog();
+            }
+        });
+        view.findViewById(R.id.my_button0).setOnClickListener(new View.OnClickListener() {          //인터넷 대화상자
+            @Override
+            public void onClick(View v) {
+                internet();
             }
         });
 
@@ -100,7 +116,7 @@ public class Frag1 extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
-                        navigateToFragment(new heartOption1());
+                        navigateToFragment(new Hypo());
                         break;
                     case 1:
                         navigateToFragment(new heartOption2());
@@ -124,7 +140,7 @@ public class Frag1 extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
-                        navigateToFragment(new heartOption1());
+                        navigateToFragment(new HeatStroke());
                         break;
                     case 1:
                         navigateToFragment(new heartOption2());
@@ -161,6 +177,32 @@ public class Frag1 extends Fragment {
         builder.setNegativeButton("취소", null);
         builder.create().show();
     }
+    //인터넷 버튼 대화상자
+    private void internet() {
+        final String[] heartOptions = {"기본 응급처치요령", "상황별 응급 처치요령"};
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("인터넷 사용이 가능할 때");
+        builder.setItems(heartOptions, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0:
+                        String url = "https://www.e-gen.or.kr/app/contents1Basics.do"; // 여기에 실제 URL을 넣으세요
+                        openWebPage(url); // 웹 페이지 열기
+                        break;
+                    case 1:
+                        String url2 = "http://www.e-gen.or.kr/app/contents2Basics.do"; // 여기에 실제 URL을 넣으세요
+                        openWebPage(url2); // 웹 페이지 열기
+                        break;
+                    case 2:
+                        break;
+                }
+            }
+        });
+        builder.setNegativeButton("취소", null);
+        builder.create().show();
+    }
 
     private void navigateToFragment(Fragment fragment) {
         FragmentManager fragmentManager = getParentFragmentManager();
@@ -168,5 +210,20 @@ public class Frag1 extends Fragment {
         transaction.replace(R.id.main_frame, fragment)
                 .addToBackStack(null)
                 .commit();
+    }
+    // 웹 페이지를 열기 위한 메서드
+    private void openWebPage(String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+        PackageManager packageManager = getContext().getPackageManager();
+        // 웹 브라우저 앱이 있는지 확인
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(intent, 0);
+        boolean isWebBrowserInstalled = !activities.isEmpty();
+
+        if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+            startActivity(intent);
+        } else {
+            // 웹 브라우저 앱이 없는 경우 처리
+            Toast.makeText(getContext(), "웹 브라우저 앱을 찾을 수 없습니다.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

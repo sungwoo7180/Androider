@@ -25,7 +25,6 @@
                 android:id="@+id/toolbar"
                 android:layout_width="409dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
                 android:background="#000000"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="?attr/actionBarTheme"
@@ -34,9 +33,11 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/heartBackButton"
+                android:id="@+id/BackButton"
                 android:layout_width="63dp"
                 android:layout_height="53dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="28dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/phone"
                 app:layout_constraintStart_toStartOf="@+id/toolbar"

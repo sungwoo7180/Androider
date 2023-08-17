@@ -34,10 +34,10 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/heartBackButton"
+                android:id="@+id/BackButton"
                 android:layout_width="63dp"
                 android:layout_height="53dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="4dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/phone"
                 app:layout_constraintStart_toStartOf="@+id/toolbar"

@@ -33,7 +33,7 @@
                 android:value="" />
         </activity>
 
-        <activity android:name=".heartOption1" />
+        <activity android:name=".frag_1.heartOption1" />
     </application>
 
 </manifest>

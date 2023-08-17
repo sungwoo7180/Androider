@@ -1,5 +1,7 @@
 package com.example.bottomnavi;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +20,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.bottomnavi.R;
 import com.example.bottomnavi.etc.BoneFracture;
 import com.example.bottomnavi.etc.Bug;
+import com.example.bottomnavi.etc.Burn;
+import com.example.bottomnavi.etc.Convulsion;
+import com.example.bottomnavi.etc.Cut;
 import com.example.bottomnavi.etc.Dia;
+import com.example.bottomnavi.etc.ElectricShock;
 import com.example.bottomnavi.etc.Exacer;
 import com.example.bottomnavi.etc.EyeAttack;
 import com.example.bottomnavi.etc.Fire;
@@ -115,6 +121,7 @@ public class ETC extends Fragment {
             }
         });
         */
+        //3_2 벌레
         view.findViewById(R.id.bugButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +133,7 @@ public class ETC extends Fragment {
                 transaction.commit();
             }
         });
+
         //6. 심장 발작 myocardial
         view.findViewById(R.id.myocardialButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,7 +170,7 @@ public class ETC extends Fragment {
                 transaction.commit();
             }
         });
-        //화상
+        //10. 골절
         view.findViewById(R.id.boneFractureButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,7 +182,7 @@ public class ETC extends Fragment {
                 transaction.commit();
             }
         });
-        //눈 손상
+        //9. 눈 손상
         view.findViewById(R.id.eyeAttackButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -182,6 +190,54 @@ public class ETC extends Fragment {
                 Fragment eye = new EyeAttack();
                 FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
                 transaction.replace(R.id.main_frame, eye);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
+        //11. 경련/발작
+        view.findViewById(R.id.seizureButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment convulsion = new Convulsion();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, convulsion);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
+        //12. 화상
+        view.findViewById(R.id.burnButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment burn = new Burn();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, burn);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
+        //13. 감전 손상
+        view.findViewById(R.id.electricShockButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment electric = new ElectricShock();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, electric);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
+        //14. 절단
+        view.findViewById(R.id.cutButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment cut = new Cut();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, cut);
                 transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
                 transaction.commit();
             }
@@ -199,4 +255,5 @@ public class ETC extends Fragment {
         }
         return super.onOptionsItemSelected(item);
     }
+
 }

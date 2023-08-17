@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,7 +36,6 @@
                 android:id="@+id/BackButton"
                 android:layout_width="63dp"
                 android:layout_height="53dp"
-                android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/phone"
@@ -49,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
-                android:text="급성 심근경색(심장 발작)"
+                android:text="복통"
                 android:textColor="#FF0000"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="@+id/toolbar"
@@ -60,7 +58,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="심장 근육으로 기능 산소 공급이 중단되는 경우에 발생한다. 심장근육으로 피가 공급하는 관상동맥이 혈전에 의해 막히거나 경련이 유발되어 산소 공급이 중단되며, 산소 공급이 중단되는 경우 심장박동이 멈출 수 있다.\n가슴의 통증 혹은 불편감이 있을 때 이것이 심장의 병변에 의한 것인지, 아니면 소화불량 등의 소화기 질환에 의한 것인지, 천식 등의 호흡기 증상에서 유발되는 것인지 구분하기 힘들다. 그러나 다음과 같은 증상은 반드시 병원 진찰을 받아야 한다."
+                android:text="1.복통은 일차진료에서 가장 흔히 접하는 증상 중 하나이며, 복통으로 내원하는 환자는 전체 환자의 5~6%를 차지한다.\n2.복통을 호소하는 환자의 문제는 일과성이고 가벼운 질환일 수도 있으나, 응급수술이나 입원을 요하는 중증 질환일 수도 있다"
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -77,14 +75,14 @@
                 app:layout_constraintHorizontal_bias="0.241"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:srcCompat="@drawable/emergency_symptom_5_1" />
+                app:srcCompat="@drawable/stomachache" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="급성 심근경색의 응급처치"
+                android:text="복통의 응급처치"
                 android:textColor="#FF0000"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +93,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text=""
+                android:text="복통을 입었을 때의 응급처치."
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,13 +110,14 @@
                 app:layout_constraintHorizontal_bias="0.515"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
-                app:srcCompat="@drawable/emergency_symptom_1_1" />
+                app:srcCompat="@drawable/etc_emergency_symptom_3_1" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="환자 발견즉시 119에 도움을 요청한다.\n(신고 시 자동심장충격기가 함께 올 수 있도록 한다.)."
+                android:text="\n1.배 근육의 긴장을 풀어주기 위하여 환자의 무릎을 굽히고(환자가 편한 자세로 해 주는 것도 좋다), \n2.배를 따뜻하게 해주거나 의복을 느슨하게 한 상태에서 편한 자세로 안정시킨다.
+"
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,46 +133,20 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
-                app:srcCompat="@drawable/emergency_symptom_1_2" />
+                app:srcCompat="@drawable/etc_emergency_symptom_3_2" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="119가 오기 전까지 환자를 가장 편한 자세가 되도록 한다.\n(앉은 자세에서 무릎아래에 베개를 집어넣고 목주위의 의복을 느슨하게 해주는 것이좋다.)
-
-"
+                android:text="3.그래도 좋아지지 않고 발열, 설사, 구토, 혈뇨 등의 증상이 있으면 함부로 위장약이나 설사약을 먹지 말고 병원에 가서 의사의 진찰을 꼭 받아야 한다."
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-            <ImageView
-                android:id="@+id/imageView5"
-                android:layout_width="396dp"
-                android:layout_height="271dp"
-                android:layout_marginTop="12dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.285"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:srcCompat="@drawable/emergency_symptom_1_3" />
-
-            <TextView
-                android:id="@+id/textView8"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="환자가 니트로글리세린을 복용하면 혀 밑으로 약을 넣어준다."
-                android:textColor="#000"
-                android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,37 +1,36 @@
-package com.example.bottomnavi.etc;
+package com.example.bottomnavi.frag_1;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bottomnavi.R;
+import com.example.bottomnavi.frag_1.heartOption2;
 
-
-public class Bug extends Fragment {
+public class Headache_frag1 extends Fragment {
     private View view;
-    private ViewPager viewPager;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.bug, container, false);
+        view = inflater.inflate(R.layout.headache_frag1, container, false);
 
         // 툴바 생성
         Toolbar toolbar = view.findViewById(R.id.toolbar);
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
         activity.getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 뒤로가기 버튼, 디폴트로 true 만 해도 백버튼이 생김
-        activity.getSupportActionBar().setTitle("벌레 물림"); // 툴바 제목 설정
-
+        activity.getSupportActionBar().setTitle("두통의 응급처치 및 예방"); // 툴바 제목 설정
 
         view.findViewById(R.id.BackButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,4 +52,3 @@ public class Bug extends Fragment {
         return super.onOptionsItemSelected(item);
     }
 }
-

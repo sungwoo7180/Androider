@@ -20,6 +20,12 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.bottomnavi.etc.HeatStroke;
 import com.example.bottomnavi.etc.Hypo;
+import com.example.bottomnavi.etc.Myocardial;
+import com.example.bottomnavi.frag_1.Dehydration;
+import com.example.bottomnavi.frag_1.Headache_frag1;
+import com.example.bottomnavi.frag_1.Stomachache_frag1;
+import com.example.bottomnavi.frag_1.heartOption1;
+import com.example.bottomnavi.frag_1.heartOption2;
 
 import java.util.List;
 
@@ -76,13 +82,46 @@ public class Frag1 extends Fragment {
                 transaction.commit();
             }
         });
+        view.findViewById(R.id.my_button4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment dehydration = new Dehydration();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, dehydration);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
+        view.findViewById(R.id.my_button5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment Stomachache = new Stomachache_frag1();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, Stomachache);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
+        view.findViewById(R.id.my_button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 현재 프래그먼트를 새로운 프래그먼트(etc)로 교체합니다
+                Fragment headache = new Headache_frag1();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_frame, headache);
+                transaction.addToBackStack(null); // 프래그먼트 트랜잭션을 백 스택에 추가
+                transaction.commit();
+            }
+        });
 
         return view;
 
     }
     //심장 버튼 대화상자
     private void showHeartDialog() {
-        final String[] heartOptions = {"응급처치 AED 사용법", "심폐소생술", "심장 질환 정보"};
+        final String[] heartOptions = {"응급처치 AED 사용법", "심폐소생술", "심장 발작"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("심장과 관련된 응급처치");
@@ -97,7 +136,7 @@ public class Frag1 extends Fragment {
                         navigateToFragment(new heartOption2());
                         break;
                     case 2:
-                        // Handle "심장 질환 정보" option
+                        navigateToFragment(new Myocardial());
                         break;
                 }
             }
@@ -143,10 +182,10 @@ public class Frag1 extends Fragment {
                         navigateToFragment(new HeatStroke());
                         break;
                     case 1:
-                        navigateToFragment(new heartOption2());
+                        navigateToFragment(new Dehydration());
                         break;
                     case 2:
-                        break;
+                        break;                                  //추가 필요
                 }
             }
         });
@@ -188,7 +227,7 @@ public class Frag1 extends Fragment {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
-                        String url = "https://www.e-gen.or.kr/app/contents1Basics.do"; // 여기에 실제 URL을 넣으세요
+                        String url = "https://naver.com"; // 여기에 실제 URL을 넣으세요
                         openWebPage(url); // 웹 페이지 열기
                         break;
                     case 1:
@@ -211,6 +250,7 @@ public class Frag1 extends Fragment {
                 .addToBackStack(null)
                 .commit();
     }
+
     // 웹 페이지를 열기 위한 메서드
     private void openWebPage(String url) {
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));

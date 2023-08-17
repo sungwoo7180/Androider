@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,7 +36,6 @@
                 android:id="@+id/BackButton"
                 android:layout_width="63dp"
                 android:layout_height="53dp"
-                android:layout_marginStart="4dp"
                 android:layout_marginTop="4dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="@string/phone"
@@ -45,46 +43,34 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="4dp"
-                android:layout_marginTop="4dp"
-                android:text="급성 심근경색(심장 발작)"
+                android:layout_marginTop="8dp"
+                android:text="두통"
                 android:textColor="#FF0000"
                 android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@+id/toolbar"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="심장 근육으로 기능 산소 공급이 중단되는 경우에 발생한다. 심장근육으로 피가 공급하는 관상동맥이 혈전에 의해 막히거나 경련이 유발되어 산소 공급이 중단되며, 산소 공급이 중단되는 경우 심장박동이 멈출 수 있다.\n가슴의 통증 혹은 불편감이 있을 때 이것이 심장의 병변에 의한 것인지, 아니면 소화불량 등의 소화기 질환에 의한 것인지, 천식 등의 호흡기 증상에서 유발되는 것인지 구분하기 힘들다. 그러나 다음과 같은 증상은 반드시 병원 진찰을 받아야 한다."
+                android:text="두통은 어떻게 정의하느냐에 따라 다르지만, 1차 진료에 여성들의 약 65 ~ 80%와 남성들의 57 ~ 75%가 경험하는 질환이다. 연령증가에 따라 두통의 빈도는 감소하나 병원을 방문하는 횟수는 많아진다."
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView1" />
-
-            <ImageView
-                android:id="@+id/imageView1"
-                android:layout_width="395dp"
-                android:layout_height="191dp"
-                android:layout_marginTop="40dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.241"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/toolbar"
-                app:srcCompat="@drawable/emergency_symptom_5_1" />
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="급성 심근경색의 응급처치"
+                android:text="두통의 응급처치 및 예방"
                 android:textColor="#FF0000"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -95,7 +81,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text=""
+                android:text="두통의 응급처치 및 예방."
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,13 +98,13 @@
                 app:layout_constraintHorizontal_bias="0.515"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
-                app:srcCompat="@drawable/emergency_symptom_1_1" />
+                app:srcCompat="@drawable/etc_emergency_symptom_1_1" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="환자 발견즉시 119에 도움을 요청한다.\n(신고 시 자동심장충격기가 함께 올 수 있도록 한다.)."
+                android:text="1.조용하고 캄캄한 방에서 수면을 취한다.\n2.규칙적인 충분한 수면을 취한다.\n3.냉습포와 온습포긴장완화"
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -134,16 +120,14 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
-                app:srcCompat="@drawable/emergency_symptom_1_2" />
+                app:srcCompat="@drawable/etc_emergency_symptom_1_2" />
 
             <TextView
                 android:id="@+id/textView7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
-                android:text="119가 오기 전까지 환자를 가장 편한 자세가 되도록 한다.\n(앉은 자세에서 무릎아래에 베개를 집어넣고 목주위의 의복을 느슨하게 해주는 것이좋다.)
-
-"
+                android:text="1.편두통을 유발시킬 수 있는 요인과 상황을 피한다.\n2.규칙적인 유산소 운동과 스트레칭 운동을 한다."
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -160,14 +144,14 @@
                 app:layout_constraintHorizontal_bias="0.285"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7"
-                app:srcCompat="@drawable/emergency_symptom_1_3" />
+                app:srcCompat="@drawable/etc_emergency_symptom_1_3" />
 
             <TextView
                 android:id="@+id/textView8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="환자가 니트로글리세린을 복용하면 혀 밑으로 약을 넣어준다."
+                android:text="카페인이 함유된 음료는 절제한다.\n여성은 피임약을 사용하지 않는다.술은 절제한다."
                 android:textColor="#000"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"

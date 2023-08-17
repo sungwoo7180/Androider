@@ -76,7 +76,7 @@ import java.util.Locale;
 public class Frag2 extends Fragment implements MapView.CurrentLocationEventListener {
     private static final String BASE_URL = "http://apis.data.go.kr/B552657/AEDInfoInqireService/getAedLcinfoInqire";
     private static final String SERVICE_KEY = "dsgAnv21hAD0I2zmlB0pu8nJRXkMbhHqHsh3BeNjcUkA21zMCvIBnm8EugArNwVwYD0/IcSNjsAYpO9gyS+EdA==";
-    private static final String BASE_URL2 = "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytBassInfoInqire";
+    private static final String BASE_URL2 = "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytLcinfoInqire";
     private static final int ACCESS_FINE_LOCATION = 1000; // Request Code
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private List<AedLocation> aedLocations = new ArrayList<>();
@@ -196,7 +196,6 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
         // java code
         mapView = new MapView(requireActivity());
         mapViewContainer = rootView.findViewById(R.id.map_View);
-
         mapViewContainer.addView(mapView);
 
 
@@ -205,7 +204,7 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading); */
 
 
-        /* 마커를 표시하자 */
+        /* 마커를 표시하자
         MapPOIItem customMarker1 = new MapPOIItem();
         MapPoint mapPoint= MapPoint.mapPointWithGeoCoord(37.480426, 126.900177); //마커 표시할 위도경도
         customMarker1.setItemName("우리집 근처당");
@@ -215,7 +214,7 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
         customMarker1.setCustomImageResourceId(R.drawable.custom_marker_red); // 마커 이미지.
         customMarker1.setCustomImageAutoscale(false); // hdpi, xhdpi 등 안드로이드 플랫폼의 스케일을 사용할 경우 지도 라이브러리의 스케일 기능을 꺼줌.
         customMarker1.setCustomImageAnchor(0.5f, 1.0f); // 마커 이미지중 기준이 되는 위치(앵커포인트) 지정 - 마커 이미지 좌측 상단 기준 x(0.0f ~ 1.0f), y(0.0f ~ 1.0f) 값.
-        mapView.addPOIItem(customMarker1);
+        mapView.addPOIItem(customMarker1); */
 
         // AED 버튼 클릭 이벤트 처리
         Button btnStart = rootView.findViewById(R.id.btn_start);
@@ -608,13 +607,50 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
             emergencyMarker.setCustomImageResourceId(R.drawable.custom_marker_red); // 마커 이미지 (다른 색상으로 표시)
             emergencyMarker.setCustomImageAnchor(0.5f, 0.5f);
             mapView.addPOIItem(emergencyMarker); // 마커 추가
-            Log.d("Emergency Marker", "response: " + name); // 이 로그 추가
+            Log.d("Emergency Marker", "response 이름: " + name); // 이 로그 추가
+            Log.d("Emergency Marker", "response 위도: " + latitude); // 이 로그 추가
+            Log.d("Emergency Marker", "response: 경도" + longitude); // 이 로그 추가
         }
     }
     private void showEmergencyLocationsOnMap() {
         for (AedLocation location : emergencyLocations) {
             showEmergencyLocation(location.getLatitude(), location.getLongitude(), location.getName());
         }
+        mapView.setPOIItemEventListener(new MapView.POIItemEventListener() {
+            @Override
+            public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
+                // 위치 마커를 클릭했을 때 대화상자를 보여준다.
+                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+                builder.setTitle("길찾기")
+                        .setMessage("선택한 위치로 길찾기를 하시겠습니까?")
+                        .setPositiveButton("길찾기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                double destinationLatitude = mapPOIItem.getMapPoint().getMapPointGeoCoord().latitude;
+                                double destinationLongitude = mapPOIItem.getMapPoint().getMapPointGeoCoord().longitude;
+
+                                // 카카오맵 URL 형식을 사용하여 길찾기 화면으로 이동
+                                String kakaoMapUrl = "kakaomap://route?sp=" + currentUserLatitude + "," + currentUserLongitude +
+                                        "&ep=" + destinationLatitude + "," + destinationLongitude +
+                                        "&by=FOOT";
+                                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(kakaoMapUrl));
+                                startActivity(intent);
+                            }
+                        })
+                        .setNegativeButton("취소", null)
+                        .show();
+            }
+
+            @Override
+            public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem) {}
+
+            @Override
+            public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {}
+
+            @Override
+            public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {}
+        });
+
     }
 
 }

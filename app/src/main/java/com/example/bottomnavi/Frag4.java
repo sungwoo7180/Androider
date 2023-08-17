@@ -150,6 +150,7 @@ public class Frag4 extends Fragment  {
             }
             return rootView;
         }
+
         //지도를 띄우자
         // java code
         mapView = new MapView(requireActivity());

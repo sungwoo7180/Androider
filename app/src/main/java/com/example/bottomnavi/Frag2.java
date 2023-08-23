@@ -11,12 +11,10 @@ import android.content.pm.Signature;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.os.Build;
 import android.net.Uri;
-import android.os.Build.VERSION;
 import android.os.Bundle;
 //import android.telecom.Call;
 import android.util.Base64;
@@ -31,17 +29,13 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import android.util.Base64;
-import android.util.Log;
-import android.view.ViewGroup;
+
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import net.daum.mf.map.api.CameraUpdateFactory;
+
 import net.daum.mf.map.api.MapPOIItem;
 import net.daum.mf.map.api.MapPoint;
-import net.daum.mf.map.api.MapPointBounds;
-import net.daum.mf.map.api.MapPolyline;
 import net.daum.mf.map.api.MapView;
 import androidx.appcompat.app.AlertDialog;
 import okhttp3.Call;
@@ -52,9 +46,6 @@ import okhttp3.Request;
 import okhttp3.Response;
 //import com.google.android.gms.common.api.Response;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 import org.xmlpull.v1.XmlPullParserFactory;
@@ -76,7 +67,10 @@ import java.util.Locale;
 public class Frag2 extends Fragment implements MapView.CurrentLocationEventListener {
     private static final String BASE_URL = "http://apis.data.go.kr/B552657/AEDInfoInqireService/getAedLcinfoInqire";
     private static final String SERVICE_KEY = "dsgAnv21hAD0I2zmlB0pu8nJRXkMbhHqHsh3BeNjcUkA21zMCvIBnm8EugArNwVwYD0/IcSNjsAYpO9gyS+EdA==";
-    private static final String BASE_URL2 = "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytLcinfoInqire";
+    private static final String BASE_URL2 = "http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytBassInfoInqire";  //5번
+
+    //http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytLcinfoInqire : 4번 응급의료기관 기본정보 조회
+    //http://apis.data.go.kr/B552657/ErmctInfoInqireService/getEgytBassInfoInqire : 5번 응급의료기관 기본정보 조회
     private static final int ACCESS_FINE_LOCATION = 1000; // Request Code
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private List<AedLocation> aedLocations = new ArrayList<>();
@@ -242,6 +236,7 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
         btnEmergency.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                emergencyLocations.clear();
                 stopShowingLocation(); //모든 마커 제거
                 if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
                     LocationManager locationManager = (LocationManager) requireActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -488,22 +483,27 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
                         while (eventType != XmlPullParser.END_DOCUMENT) {
                             if (eventType == XmlPullParser.START_TAG) {
                                 String tagName = parser.getName();
-                                if (tagName.equals("longitude")) {
+                                if (tagName.equals("wgs84Lon")) {                                   //4번 longitude 5번 wgs84Lon
                                     latitudeString1 = parser.nextText();
-                                    Log.d("Response 경도:",latitudeString1);
-                                } else if (tagName.equals("latitude")) {
+                                    Log.d("Response 응급실 파서 경도:",latitudeString1);
+                                } else if (tagName.equals("wgs84Lat")) {                            //4번 latitude  5번 wgs84Lat
                                     longitudeString1 = parser.nextText();
-                                    Log.d("Response 위도:",longitudeString1);
+                                    Log.d("Response 응급실 파서 위도:",longitudeString1);
                                 } else if (tagName.equals("dutyName")) {
                                     name1 = parser.nextText();
-                                    Log.d("Response 이름:",name1);
+                                    Log.d("Response 응급실 파서 이름:",name1);
                                 }
                             } else if (eventType == XmlPullParser.END_TAG) {
                                 if (parser.getName().equals("item")) {
                                     if (latitudeString1 != null && longitudeString1 != null && name1 != null) {
                                         AedLocation emergencyLocation = new AedLocation(parseDoubleSafely(latitudeString1), parseDoubleSafely(longitudeString1), name1);
+                                        Log.d("Emergency Location", "Name: " + name1 +
+                                                ", Latitude: " +  latitudeString1 +
+                                                ", Longitude: " + longitudeString1);
+                                        Log.d("Emergency Location", "hi:");
                                         emergencyLocations.add(emergencyLocation);
                                     }
+                                    Log.d("Emergency Location", "hello");
                                     latitudeString1 = null;
                                     longitudeString1 = null;
                                     name1 = null;
@@ -512,8 +512,16 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
                             eventType = parser.next();
                         }
                     } catch (XmlPullParserException | IOException e) {
+                        Log.e("Parsing Error", "Error parsing latitude or longitude: " + e.getMessage());
                         e.printStackTrace();
                     }
+                    // 응급실 위치 정보 파싱 후 로그를 통해 확인
+                    for (AedLocation location : emergencyLocations) {
+                        Log.d("Emergency Location", "Name: " + location.getName() +
+                                ", Latitude: " + location.getLatitude() +
+                                ", Longitude: " + location.getLongitude());
+                    }
+
                     requireActivity().runOnUiThread(() -> {
                         showEmergencyLocationsOnMap(); // 응급실 위치를 지도에 표시하는 메서드 호출
                     });
@@ -549,8 +557,8 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
             aedMarker.setCustomImageAutoscale(false); // 자동 크기 조정 비활성화
             int markerWidth = 50; // 원하는 너비 값 (픽셀)
             int markerHeight = 50; // 원하는 높이 값 (픽셀)
-            aedMarker.setCustomImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.custom_marker_red1), markerWidth, markerHeight, false));
-            aedMarker.setCustomImageResourceId(R.drawable.custom_marker_red1); // 마커 이미지.       //custom_marker_red1 or aedmarker6
+            aedMarker.setCustomImageBitmap(Bitmap.createScaledBitmap(BitmapFactory.decodeResource(getResources(), R.drawable.custom_marker_aed), markerWidth, markerHeight, false));
+            aedMarker.setCustomImageResourceId(R.drawable.custom_marker_aed); // 마커 이미지.       //custom_marker_red1 or aedmarker6
             aedMarker.setCustomImageAnchor(0.5f, 0.5f);
             mapView.addPOIItem(aedMarker); // 마커 추가
             Log.d("AED Marker", "response: " + name); // 이 로그 추가
@@ -560,6 +568,9 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
     private void showAedLocationsOnMap() {
         for (AedLocation location : aedLocations) {
             showAedLocation(location.getLatitude(), location.getLongitude(), location.getName());
+            Log.d("Emergency Location", "Name: " + location.getName() +
+                    ", Latitude: " + location.getLatitude() +
+                    ", Longitude: " + location.getLongitude());
         }
         mapView.setPOIItemEventListener(new MapView.POIItemEventListener() {
             @Override
@@ -595,26 +606,61 @@ public class Frag2 extends Fragment implements MapView.CurrentLocationEventListe
             @Override
             public void onDraggablePOIItemMoved(MapView mapView, MapPOIItem mapPOIItem, MapPoint mapPoint) {}
         });
-}
+    }
     private void showEmergencyLocation(double latitude, double longitude, String name) {
         if (mapViewContainer != null) {
+
+            Log.d("Emergency Location3", "Name: " + name +
+                    ", Latitude: " + latitude +
+                    ", Longitude: " + longitude);
             MapPOIItem emergencyMarker = new MapPOIItem();
             MapPoint mapPoint = MapPoint.mapPointWithGeoCoord(latitude, longitude);
             emergencyMarker.setItemName(name);  // 마커 이름 설정
             emergencyMarker.setTag(3);          // 태그 설정 (고유한 값)
             emergencyMarker.setMapPoint(mapPoint);
             emergencyMarker.setMarkerType(MapPOIItem.MarkerType.CustomImage); // 마커타입을 커스텀 마커로 지정.
-            emergencyMarker.setCustomImageResourceId(R.drawable.custom_marker_red); // 마커 이미지 (다른 색상으로 표시)
+            emergencyMarker.setCustomImageResourceId(R.drawable.custom_marker_aed); // 마커 이미지 (다른 색상으로 표시)
             emergencyMarker.setCustomImageAnchor(0.5f, 0.5f);
             mapView.addPOIItem(emergencyMarker); // 마커 추가
-            Log.d("Emergency Marker", "response 이름: " + name); // 이 로그 추가
-            Log.d("Emergency Marker", "response 위도: " + latitude); // 이 로그 추가
-            Log.d("Emergency Marker", "response: 경도" + longitude); // 이 로그 추가
+            mapView.invalidate();
+            //Log.d("Emergency Marker", "response 이름 : " + name); // 이 로그 추가
+            //Log.d("Emergency Marker", "response 위도 : " + latitude); // 이 로그 추가
+            //Log.d("Emergency Marker", "response: 경도 :" + longitude); // 이 로그 추가
+
+
+            //동강병원
+            MapPOIItem customMarker1 = new MapPOIItem();
+            MapPoint mapPoint1= MapPoint.mapPointWithGeoCoord(35.55346089, 129.30153777); //마커 표시할 위도경도
+            customMarker1.setItemName("동강병원");
+            customMarker1.setTag(4);
+            customMarker1.setMapPoint(mapPoint1);
+            customMarker1.setMarkerType(MapPOIItem.MarkerType.CustomImage); // 마커타입을 커스텀 마커로 지정.
+            customMarker1.setCustomImageResourceId(R.drawable.custom_marker_red); // 마커 이미지.
+            customMarker1.setCustomImageAutoscale(false); // hdpi, xhdpi 등 안드로이드 플랫폼의 스케일을 사용할 경우 지도 라이브러리의 스케일 기능을 꺼줌.
+            customMarker1.setCustomImageAnchor(0.5f, 1.0f); // 마커 이미지중 기준이 되는 위치(앵커포인트) 지정 - 마커 이미지 좌측 상단 기준 x(0.0f ~ 1.0f), y(0.0f ~ 1.0f) 값.
+            mapView.addPOIItem(customMarker1);
+            //삼정병원
+            MapPOIItem customMarker2 = new MapPOIItem();
+            MapPoint mapPoint2= MapPoint.mapPointWithGeoCoord(35.54848987, 129.2709871); //마커 표시할 위도경도
+            customMarker2.setItemName("삼정병원");
+            customMarker2.setTag(5);
+            customMarker2.setMapPoint(mapPoint2);
+            customMarker2.setMarkerType(MapPOIItem.MarkerType.CustomImage); // 마커타입을 커스텀 마커로 지정.
+            customMarker2.setCustomImageResourceId(R.drawable.custom_marker_red); // 마커 이미지.
+            customMarker2.setCustomImageAutoscale(false); // hdpi, xhdpi 등 안드로이드 플랫폼의 스케일을 사용할 경우 지도 라이브러리의 스케일 기능을 꺼줌.
+            customMarker2.setCustomImageAnchor(0.5f, 1.0f); // 마커 이미지중 기준이 되는 위치(앵커포인트) 지정 - 마커 이미지 좌측 상단 기준 x(0.0f ~ 1.0f), y(0.0f ~ 1.0f) 값.
+            mapView.addPOIItem(customMarker2);
+
+
         }
     }
     private void showEmergencyLocationsOnMap() {
+        Log.d("Emergency Location", "Name");
         for (AedLocation location : emergencyLocations) {
             showEmergencyLocation(location.getLatitude(), location.getLongitude(), location.getName());
+            Log.d("Emergency Location2", "Name: " + location.getName() +
+                    ", Latitude: " + location.getLatitude() +
+                    ", Longitude: " + location.getLongitude());
         }
         mapView.setPOIItemEventListener(new MapView.POIItemEventListener() {
             @Override

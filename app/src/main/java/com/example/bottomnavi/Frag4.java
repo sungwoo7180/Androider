@@ -23,6 +23,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import android.util.Base64;
@@ -52,6 +53,7 @@ import java.util.Locale;
 
 public class Frag4 extends Fragment  {
     private static final int ACCESS_FINE_LOCATION = 1000; // Request Code
+    private static final int REQUEST_CALL_PERMISSION = 1001;
     private static final int REQUEST_LOCATION_PERMISSION = 1;
     private MapView mapView;
     private ViewGroup mapViewContainer;
@@ -59,6 +61,8 @@ public class Frag4 extends Fragment  {
     private LocationManager locationManager;
     private LocationListener locationListener;
     private TextView locationTextView;
+    private Button btnCancel;
+    private Button btnCall;
     // SMS 전송 여부를 확인하는 불리언 변수
     private boolean isSmsSent = false;
 
@@ -163,7 +167,7 @@ public class Frag4 extends Fragment  {
         mapView.setCurrentLocationTrackingMode(MapView.CurrentLocationTrackingMode.TrackingModeOnWithoutHeading);
         */
 
-        /* 마커를 표시하자 */
+        /* 마커를 표시하자
         MapPOIItem customMarker = new MapPOIItem();
         MapPoint mapPoint= MapPoint.mapPointWithGeoCoord(37.480426, 126.900177); //마커 표시할 위도경도
         customMarker.setItemName("우리집 근처당");
@@ -173,7 +177,7 @@ public class Frag4 extends Fragment  {
         customMarker.setCustomImageResourceId(R.drawable.custom_marker_red); // 마커 이미지.
         customMarker.setCustomImageAutoscale(false); // hdpi, xhdpi 등 안드로이드 플랫폼의 스케일을 사용할 경우 지도 라이브러리의 스케일 기능을 꺼줌.
         customMarker.setCustomImageAnchor(0.5f, 1.0f); // 마커 이미지중 기준이 되는 위치(앵커포인트) 지정 - 마커 이미지 좌측 상단 기준 x(0.0f ~ 1.0f), y(0.0f ~ 1.0f) 값.
-        mapView.addPOIItem(customMarker);
+        mapView.addPOIItem(customMarker); */
 
         // 내 위치 버튼 클릭 이벤트 처리
         Button btnStart = rootView.findViewById(R.id.btn_start);
@@ -195,6 +199,9 @@ public class Frag4 extends Fragment  {
         });
         // "문자 전송" 버튼 찾기
         Button btnSend = rootView.findViewById(R.id.btn_send);
+        btnCancel = rootView.findViewById(R.id.btn_cancel);
+        btnCall = rootView.findViewById(R.id.btn_call);
+
         // "내 위치" 버튼에 클릭 리스너 설정
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -212,26 +219,59 @@ public class Frag4 extends Fragment  {
                     Intent sendIntent = new Intent(Intent.ACTION_SENDTO);
                     sendIntent.setData(Uri.parse("smsto:" + Uri.encode("119")));
                     sendIntent.putExtra("sms_body", locationText);
-
                     // SMS 인텐트를 처리할 앱이 있는지 확인
                     if (sendIntent.resolveActivity(requireActivity().getPackageManager()) != null) {
-                        // SMS 인텐트 시작
-                        startActivity(sendIntent);
-
                         // SMS 가 전송되었음을 표시하기 위해 isSmsSent 를 true 로 설정
                         isSmsSent = true;
+                        btnSend.setVisibility(View.INVISIBLE);
+                        btnCancel.setVisibility(View.VISIBLE);
+                        btnCall.setVisibility(View.VISIBLE);
+                        // SMS 인텐트 시작
+                        startActivity(sendIntent);
                     } else {
                         // SMS 인텐트를 처리할 앱이 없으면 사용자에게 안내 메시지 표시
                         Toast.makeText(requireContext(), "문자 메시지를 처리할 앱이 없습니다.", Toast.LENGTH_SHORT).show();
                     }
+                    // 버튼 상태 변경
+
                 } else {
                     // SMS가 이미 전송되었음을 사용자에게 안내
+                    // isSmsSent 상태를 초기화하고 버튼 상태 변경
+                    isSmsSent = false;
+                    btnSend.setVisibility(View.VISIBLE);
+                    btnCancel.setVisibility(View.INVISIBLE);
+                    btnCall.setVisibility(View.INVISIBLE);
                     Toast.makeText(requireContext(), "이미 문자 메시지를 전송했습니다.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
+        // "전화하기" 버튼 클릭 이벤트 처리
+        btnCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // '119'로 암시적 인텐트를 통해 전화 걸기
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:119"));
+                if (ActivityCompat.checkSelfPermission(requireContext(), Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                    // CALL_PHONE 권한이 없을 경우 권한 요청
+                    ActivityCompat.requestPermissions(requireActivity(), new String[]{Manifest.permission.CALL_PHONE}, REQUEST_CALL_PERMISSION);
+                } else {
+                    // CALL_PHONE 권한이 있는 경우
+                    startActivity(callIntent);
+                }
+            }
+        });
+        // "취소" 버튼 클릭 이벤트 처리
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 버튼 상태 초기화
+                isSmsSent = false;
+                btnSend.setVisibility(View.VISIBLE);
+                btnCancel.setVisibility(View.INVISIBLE);
+                btnCall.setVisibility(View.INVISIBLE);
+            }
+        });
         // 추적중지 버튼 클릭 이벤트 처리 고민중
         /* Button btnStop = rootView.findViewById(R.id.btn_stop);
         btnStop.setOnClickListener(new View.OnClickListener() {
@@ -263,6 +303,17 @@ public class Frag4 extends Fragment  {
             // 권한 체크에 동의를 하지 않으면 안드로이드 종료
             if (!check_result) {
                 requireActivity().finish();
+            }
+        } else if (requestCode == REQUEST_CALL_PERMISSION) {
+            // "전화하기" 권한 요청에 대한 결과 처리
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // CALL_PHONE 권한이 허용된 경우
+                Intent callIntent = new Intent(Intent.ACTION_CALL);
+                callIntent.setData(Uri.parse("tel:119"));
+                startActivity(callIntent);
+            } else {
+                // CALL_PHONE 권한이 거부된 경우에 대한 처리
+                Toast.makeText(requireContext(), "전화 걸기 권한이 필요합니다.", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -316,8 +367,4 @@ public class Frag4 extends Fragment  {
             customMarker = null;
         }
     }
-
-
-
-
 }
